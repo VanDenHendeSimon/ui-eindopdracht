@@ -163,7 +163,7 @@ const showFeatures = function (jsonObject) {
 
             return L.circleMarker(latlng, {
                 // kwadraat voor meer verschil
-                radius: Math.pow(feature.properties.mag, 2),
+                radius: Math.pow(mag, 2.1),
 
                 // Fill
                 // fillColor: "#28636F",
