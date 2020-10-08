@@ -1,0 +1,299 @@
+:root {
+    /* Global colors */
+    --global-color-alpha-light: #ffe873;
+    --global-color-alpha: #ffda29;
+    --global-color-alpha-dark: #f5d01a;
+    --global-color-alpha-x-dark: #d4b206;
+    --global-color-alpha-transparent: #ffda29bf;
+    --global-color-alpha-x-transparent: #ffda294d;
+
+    --global-color-neutral-xxxx-light: #f5f6fa;
+    --global-color-neutral-xxx-light: #e2e3e7;
+    --global-color-neutral-xx-light: #caccd4;
+    --global-color-neutral-x-light: #b5b6c0;
+    --global-color-neutral-light: #a0a1ad;
+    --global-color-neutral: #8b8c9a;
+    --global-color-neutral-dark: #757787;
+    --global-color-neutral-x-dark: #606274;
+    --global-color-neutral-xx-dark: #4b4c60;
+    --global-color-neutral-xxx-dark: #35374d;
+    --global-color-neutral-xxxx-dark: #20223a;
+
+    --global-color-error: #de1738;
+    --global-input-error-borderColor: var(--global-color-error);
+
+    /* global page settings */
+    --global-html-color: var(--global-color-neutral-xxxx-dark);
+    --global-html-backgroundColor: var(--global-color-neutral-xxxx-light);
+    --global-selection-backgroundColor: var(--global-color-alpha);
+
+    /* borders */
+    --global-borderRadius: 3px;
+    --global-borderWidth: 1px;
+
+    /* transitions */
+    --global-transitionTiming-alpha: 0.1s ease-out;
+
+    /* Baseline settings */
+    --global-baseline: 8px;
+    --global-whitespace: calc(var(--global-baseline) * 3); /* = 24px */
+
+    --global-whitespace-xs: calc(var(--global-baseline) / 2); /* = 4px */
+    --global-whitespace-sm: calc(var(--global-baseline) * 1); /*  = 8px */
+    --global-whitespace-md: calc(var(--global-baseline) * 2); /*  = 16px */
+    --global-whitespace-lg: calc(var(--global-baseline) * 4); /*  = 32px */
+    --global-whitespace-xl: calc(var(--global-whitespace) * 2); /*  = 48px */
+    --global-whitespace-xxl: calc(var(--global-whitespace) * 3); /*  = 72px */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+#mapid {
+    /* 70% vd viewport height */
+    height: 100vh;
+    position: relative;
+    z-index: 10;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+.property-panel {
+    width: 350px;
+    height: 100%;
+    background-color: var(--global-color-neutral-xx-dark);
+    position: fixed;
+    top: 0;
+    left: -350px;
+    border-radius: 0 3% 3% 0;
+    z-index: 20;
+    transition: all 0.8s cubic-bezier(1, 0, 0, 1);
+}
+
+.scrollable-categories {
+    overflow-y: auto; /* makes this section scrollable */
+    position: relative;
+    height: calc(100vh - 150px);
+}
+
+.o-layout {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.arrow-icon {
+    /* fill: var(--main-dark); */
+    fill: var(--global-color-alpha);
+    transition: all 0.3s ease-in-out;
+}
+
+.show__icon {
+    fill: var(--global-color-alpha);
+}
+
+.show__icon--open {
+    transform: rotateZ(90deg);
+}
+
+.show {
+    left: 0;
+    box-shadow: 6px 0px 100px 0px rgba(0, 0, 0, 0.3);
+}
+
+.static-row {
+    width: 100%;
+    height: 32px;
+    position: fixed;
+    display: flex;
+    top: 32px;
+    left: 34px;
+    z-index: 30;
+}
+
+.logo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: 32px;
+    color: var(--global-color-neutral-xx-dark);
+    fill: var(--global-color-neutral-xx-dark);
+    transition: all 0.8s ease;
+}
+
+.hamburger-menu {
+    width: 36px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-right: 16px;
+}
+
+.line {
+    width: 100%;
+    height: 3px;
+    background-color: var(--global-color-alpha);
+    transition: all 0.8s ease;
+    box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.5);
+}
+
+/* HERE */
+.change .line-1 {
+    transform: rotateZ(-405deg) translate(-8px, 6px);
+    box-shadow: none;
+}
+
+.change .line-2 {
+    opacity: 0;
+}
+
+/* HERE */
+.change .line-3 {
+    transform: rotateZ(405deg) translate(-8px, -6px);
+    box-shadow: none;
+}
+
+.offset {
+    position: relative;
+    top: 80px;
+}
+
+.light-color {
+    color: var(--global-color-neutral-xxxx-light);
+    fill: var(--global-color-neutral-xxxx-light);
+}
+
+.u-hidden {
+    display: none;
+}
+
+.small-width {
+    max-width: 17em;
+}
+
+.footer {
+    position: absolute;
+    font-size: 14px;
+    font-style: italic;
+    left: 30px;
+    bottom: 24px;
+    color: #999;
+}
+
+.light-text {
+    color: var(--global-color-neutral-xxxx-light);
+}
+
+.leaflet-popup {
+    -webkit-animation: fadein 0.6s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 0.6s; /* Firefox < 16 */
+    -ms-animation: fadein 0.6s; /* Internet Explorer */
+    -o-animation: fadein 0.6s; /* Opera < 12.1 */
+    animation: fadein 0.6s;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.c-popup {
+    background-color: var(--global-color-neutral-x-light) !important;
+}
+
+.c-popup__title {
+    margin: 0 0 var(--global-whitespace-xs) 0 !important;
+    color: var(--global-color-neutral-xxx-dark) !important;
+}
+
+.c-popup__date {
+    margin: 0 0 var(--global-whitespace-md) 0 !important;
+}
+
+.c-popup__text {
+    margin: 0 0 var(--global-whitespace-xs) 0 !important;
+    color: var(--global-color-neutral-x-dark) !important;
+}
+
+.c-popup__richter-container {
+    height: 1rem;
+    width: 100%;
+    position: relative;
+
+    margin-bottom: var(--global-whitespace-xs);
+}
+
+.c-popup__richter-bar {
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.c-popup__richter-bar--background {
+    background-color: var(--global-color-neutral-xxx-light);
+}
+
+.c-popup__richter-labels {
+    display: flex;
+    justify-content: space-between;
+}
+
+.c-popup__richter-labels p {
+    margin: 0;
+    font-size: 1rem;
+}
