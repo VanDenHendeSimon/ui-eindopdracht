@@ -87,33 +87,11 @@ const addIcon = function (iconLocation, latlng, layer, popupLabel, size, alignTo
     return marker;
 };
 
-const addGeoJSON = function (jsonObject) {
-    console.log(jsonObject);
-
-    const addedGeoJson = L.geoJson(jsonObject, {
-        pointToLayer: function (pointData, latlng) {
-            const url = `icons/${pointData.properties.iconName}.png`;
-            const popupLabel = pointData.properties.popupLabel;
-
-            const icon = addIcon(url, latlng, housesLayer, popupLabel);
-
-            // adds it to the geoJson object
-            return icon;
-        },
-    });
-
-    // Fit the view automatically to the contents of the geojson
-    map.fitBounds(addedGeoJson.getBounds(), { padding: [40, 40] });
-};
-
 /* Creating the map */
 const createMap = function () {
     const view = [25, 10.5];
     map = L.map("mapid", {
         zoomControl: false,
-        zoomAnimation: true,
-        fadeAnimation: true,
-        markerZoomAnimation: true,
         maxZoom: 12,
     }).setView(view, 3);
 
@@ -159,8 +137,11 @@ const getScaleColor = function (mag) {
     if (mag < 4) {
         // Below 4 is minor
         return "#50C878";
-    } else if (mag >= 4 && mag < 7) {
-        // 4 - 7 is moderate to strong
+    } else if (mag >= 4 && mag < 5) {
+        // 4 - 5.5 is moderate
+        return "#FFDA29";
+    } else if (mag >= 5 && mag < 7.5) {
+        // 5.5 - 7.5 is strong
         return "#FC8A17";
     } else {
         // Above 7/8 is major/great
@@ -168,17 +149,30 @@ const getScaleColor = function (mag) {
     }
 };
 
+const apiError = function (error) {
+    console.log(error);
+};
+
 const showFeatures = function (jsonObject) {
     console.log(jsonObject);
 
     L.geoJSON(jsonObject.features, {
         pointToLayer: function (feature, latlng) {
+            const mag = feature.properties.mag;
+            const color = getScaleColor(mag);
+
             return L.circleMarker(latlng, {
-                radius: feature.properties.mag * 4.5,
-                fillColor: "#28636F",
-                // fillColor: getScaleColor(feature.properties.mag),
+                // kwadraat voor meer verschil
+                radius: Math.pow(feature.properties.mag, 2),
+
+                // Fill
+                // fillColor: "#28636F",
+                fillColor: color,
                 fillOpacity: 0.5,
-                stroke: false,
+
+                // Border
+                weight: 1,
+                color: color,
             });
         },
         onEachFeature: function (feature, layer) {
@@ -204,24 +198,14 @@ const showFeatures = function (jsonObject) {
                     </div>
                     `);
 
-                layer.bindPopup(popup, {
-                    zoomAnimation: true,
-                    fadeAnimation: true,
-                    markerZoomAnimation: true,
-                });
-
-                console.log(popup);
+                layer.bindPopup(popup);
             }
         },
     }).addTo(map);
 };
 
-const apiError = function (error) {
-    console.log(error);
-};
-
 const getFeatures = function () {
-    handleData(`${baseAPI}&starttime=2020-01-01&endtime=2020-01-02`, showFeatures, apiError);
+    handleData(`${baseAPI}&starttime=2020-01-20&endtime=2020-01-30&minmagnitude=2.5`, showFeatures, apiError);
 };
 
 /* init */
