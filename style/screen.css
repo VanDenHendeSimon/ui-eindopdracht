@@ -74,6 +74,10 @@
     --global-input-focus-borderColor: var(--global-color-alpha);
     --global-input-focus-boxShadowColor: var(--global-color-alpha-x-transparent);
     --global-input-focus-boxShadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
+
+    /* popups */
+    --popup-iconColor: var(--global-color-neutral-xx-dark);
+    --popup-detailsTextColor: var(--global-color-neutral-x-dark);
 }
 
 /*------------------------------------*\
@@ -584,8 +588,19 @@ body {
 #COMPONENTS
 \*------------------------------------*/
 
-.leaflet-popup-content-wrapper {
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+    transition: all 0.8s cubic-bezier(1, 0, 0, 1);
     background-color: var(--global-html-backgroundColor);
+}
+
+.leaflet-bar a {
+    background-color: var(--global-html-backgroundColor);
+}
+
+.leaflet-tile {
+    -webkit-filter: var(--global-leaflet-wekit-filter);
+    transition: all 0.8s cubic-bezier(1, 0, 0, 1);
 }
 
 .c-logo {
@@ -594,9 +609,9 @@ body {
     align-items: center;
 
     font-size: 32px;
-    color: var(--global-color-neutral-xx-dark);
-    fill: var(--global-color-neutral-xx-dark);
-    transition: all 0.8s ease;
+    color: var(--global-html-color);
+    fill: var(--global-html-color);
+    transition: all 0.8s cubic-bezier(1, 0, 0, 1);
 }
 
 .c-logo__text {
@@ -731,8 +746,9 @@ body {
 }
 
 .c-popup {
-    --popup-detailsTextColor: var(--global-color-neutral-x-dark);
     --popup-titleTextColor: var(--global-html-color);
+
+    transition: all 0.8s cubic-bezier(1, 0, 0, 1);
 }
 
 .c-popup__title {
@@ -745,7 +761,6 @@ body {
 
 .c-popup__date {
     --popup-dateSize: 0.8rem;
-    --popup-iconColor: var(--global-color-neutral-xx-dark);
 
     display: flex;
     align-items: flex-end;
@@ -883,7 +898,7 @@ more padding on the right to avoid overlap
     padding-bottom: var(--global-whitespace-sm);
     font-size: 1rem;
     line-height: 1.1rem;
-    color: var(--label-color, var(--global-html-color));
+    color: var(--global-html-color);
 
     display: flex;
     justify-content: space-between;
@@ -1151,4 +1166,22 @@ more padding on the right to avoid overlap
 
 .u-light-text {
     color: var(--global-color-neutral-xxxx-light);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --global-html-color: var(--global-color-neutral-xxxx-light);
+        --global-html-backgroundColor: var(--global-color-neutral-xxx-dark);
+        --popup-iconColor: var(--global-color-neutral-xxxx-light);
+        --popup-detailsTextColor: var(--global-color-neutral-x-light);
+        --global-leaflet-wekit-filter: "hue-rotate(180deg) invert(100%)";
+    }
+
+    .leaflet-bar a {
+        color: var(--global-color-neutral-xxx-light);
+    }
+
+    .leaflet-bar a:hover {
+        background-color: var(--global-color-neutral-dark);
+    }
 }

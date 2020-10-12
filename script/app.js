@@ -6,6 +6,8 @@ const baseAPI = "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson
 //array to store layers for each feature type
 let layerGroups = [];
 
+let htmlDarkModeToggle;
+
 const maxMinorMag = 4;
 const maxModerateMag = 5;
 const maxStrongMag = 7.5;
@@ -17,15 +19,18 @@ const scalarColorMapper = {
     major: "#ED2939",
 };
 
-const constructElements = function () {
+const listenToHamburger = function () {
     const propertyPanel = document.querySelector(".js-property-panel");
     const hamburgerIcon = document.querySelector(".hamburger-menu");
-    const logo = document.querySelector(".c-logo");
 
     hamburgerIcon.addEventListener("click", () => {
         propertyPanel.classList.toggle("show");
         hamburgerIcon.classList.toggle("change");
     });
+};
+
+const getDomElements = function () {
+    htmlDarkModeToggle = document.querySelector(".js-dark-mode");
 };
 
 const addMarker = function (latlng, label, layer, categoryID) {
@@ -197,7 +202,7 @@ const showFeatures = function (jsonObject) {
 
                 // Not sure about the link to the detail page of the USGOV (properties.url)
                 const popup = L.popup().setContent(`
-                    <div>
+                    <div class="c-popup">
                         <!-- <h2 class="c-popup__title"><a href="${feature.properties.url}/origin/detail" target="_blank">${feature.properties.place}</a></h2> -->
                         <h2 class="c-popup__title">${feature.properties.place}</h2>
                         <div class="c-popup__date">
@@ -237,8 +242,50 @@ const showLayer = function (color) {
 };
 
 const removeLayer = function (color) {
+    // Dont just remove it, set the opacity to 0 over time
     const layerGroup = layerGroups[color];
     map.removeLayer(layerGroup);
+};
+
+const darkmode = function () {
+    return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+};
+
+const listenToDarkMode = function () {
+    // Check initial state
+    if (darkmode()) {
+        htmlDarkModeToggle.checked = true;
+    } else {
+        htmlDarkModeToggle.checked = false;
+    }
+
+    // Update when the system changes
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function (e) {
+        if (darkmode()) {
+            htmlDarkModeToggle.checked = true;
+        } else {
+            htmlDarkModeToggle.checked = false;
+        }
+    });
+
+    // Listen to the input
+    htmlDarkModeToggle.addEventListener("input", function () {
+        if (htmlDarkModeToggle.checked) {
+            // Set darkmode
+            document.documentElement.style.setProperty("--global-html-color", "var(--global-color-neutral-xxxx-light)");
+            document.documentElement.style.setProperty("--global-html-backgroundColor", "var(--global-color-neutral-xxx-dark)");
+            document.documentElement.style.setProperty("--popup-iconColor", "var(--global-color-neutral-xxxx-light)");
+            document.documentElement.style.setProperty("--popup-detailsTextColor", "var(--global-color-neutral-x-light)");
+            document.documentElement.style.setProperty("--global-leaflet-wekit-filter", "hue-rotate(180deg) invert(100%)");
+        } else {
+            // Set lightmode
+            document.documentElement.style.setProperty("--global-html-color", "var(--global-color-neutral-xxxx-dark)");
+            document.documentElement.style.setProperty("--global-html-backgroundColor", "var(--global-color-neutral-xxxx-light)");
+            document.documentElement.style.setProperty("--popup-iconColor", "var(--global-color-neutral-xx-dark)");
+            document.documentElement.style.setProperty("--popup-detailsTextColor", "var(--global-color-neutral-x-dark)");
+            document.documentElement.style.setProperty("--global-leaflet-wekit-filter", "none");
+        }
+    });
 };
 
 const init = function () {
@@ -248,13 +295,16 @@ const init = function () {
     createMap();
 
     // Construct navigation and other static elements
-    constructElements();
+    listenToHamburger();
+    getDomElements();
 
     // Track user
     trackUser();
 
     // Get features ( data )
     getFeatures();
+
+    listenToDarkMode();
 };
 
 document.addEventListener("DOMContentLoaded", init);
