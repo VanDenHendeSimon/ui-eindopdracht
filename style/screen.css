@@ -53,6 +53,7 @@
 
     /* transitions */
     --global-transitionTiming-alpha: 0.1s ease-out;
+    --global-transition: all 0.6s cubic-bezier(1, 0, 0, 1);
 
     /* Baseline settings */
     --global-baseline: 8px;
@@ -276,7 +277,7 @@ body {
     left: -350px;
     border-radius: 0 3% 3% 0;
     z-index: 20;
-    transition: all 0.8s cubic-bezier(1, 0, 0, 1);
+    transition: var(--global-transition);
 
     padding: var(--global-whitespace);
 }
@@ -590,18 +591,25 @@ body {
 
 .leaflet-popup-content-wrapper,
 .leaflet-popup-tip {
-    transition: all 0.8s cubic-bezier(1, 0, 0, 1);
+    transition: var(--global-transition);
     background-color: var(--global-html-backgroundColor);
 }
 
 .leaflet-bar a {
     color: var(--global-html-color);
     background-color: var(--global-html-backgroundColor);
+    transition: var(--global-transition);
 }
 
 .leaflet-tile {
     -webkit-filter: var(--global-leaflet-wekit-filter);
-    transition: all 0.8s cubic-bezier(1, 0, 0, 1);
+    transition: var(--global-transition);
+}
+
+.leaflet-control-scale-line {
+    color: var(--global-html-color);
+    background-color: var(--global-html-backgroundColor);
+    transition: var(--global-transition);
 }
 
 .c-logo {
@@ -612,7 +620,7 @@ body {
     font-size: 32px;
     color: var(--global-html-color);
     fill: var(--global-html-color);
-    transition: all 0.8s cubic-bezier(1, 0, 0, 1);
+    transition: var(--global-transition);
 }
 
 .c-logo__text {
@@ -752,7 +760,7 @@ body {
 .c-popup {
     --popup-titleTextColor: var(--global-html-color);
 
-    transition: all 0.8s cubic-bezier(1, 0, 0, 1);
+    transition: var(--global-transition);
 }
 
 .c-popup__title {
