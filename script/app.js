@@ -251,6 +251,26 @@ const darkmode = function () {
     return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
 };
 
+const applyDarkmode = function () {
+    // Alle variables in de :root omdat die popups dynamisch zijn
+    // Anders moest ik dus elke keer de popup selector gaan oproepen en de variabelen weer overschrijven
+    // zelfde met die leaflet tiles, elke keer dage zoomt / ver pant zijnt nieuwe tiles
+    // Parent class kon een optie zijn maar tmoest sowieso voor die popups dus kheb het dan voor die tiles ook gedaan
+    document.documentElement.style.setProperty("--global-html-color", "var(--global-color-neutral-xxxx-light)");
+    document.documentElement.style.setProperty("--global-html-backgroundColor", "var(--global-color-neutral-xxx-dark)");
+    document.documentElement.style.setProperty("--popup-iconColor", "var(--global-color-neutral-xxxx-light)");
+    document.documentElement.style.setProperty("--popup-detailsTextColor", "var(--global-color-neutral-x-light)");
+    document.documentElement.style.setProperty("--global-leaflet-wekit-filter", "hue-rotate(180deg) invert(100%)");
+};
+
+const applyLightmode = function () {
+    document.documentElement.style.setProperty("--global-html-color", "var(--global-color-neutral-xxxx-dark)");
+    document.documentElement.style.setProperty("--global-html-backgroundColor", "var(--global-color-neutral-xxxx-light)");
+    document.documentElement.style.setProperty("--popup-iconColor", "var(--global-color-neutral-xx-dark)");
+    document.documentElement.style.setProperty("--popup-detailsTextColor", "var(--global-color-neutral-x-dark)");
+    document.documentElement.style.setProperty("--global-leaflet-wekit-filter", "none");
+};
+
 const listenToDarkMode = function () {
     // Check initial state
     if (darkmode()) {
@@ -263,31 +283,19 @@ const listenToDarkMode = function () {
     window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function (e) {
         if (darkmode()) {
             htmlDarkModeToggle.checked = true;
+            applyDarkmode();
         } else {
             htmlDarkModeToggle.checked = false;
+            applyLightmode();
         }
     });
 
     // Listen to the input
     htmlDarkModeToggle.addEventListener("input", function () {
-        // Alle variables in de :root omdat die popups dynamisch zijn
-        // Anders moest ik dus elke keer de popup selector gaan oproepen en de variabelen weer overschrijven
-        // zelfde met die leaflet tiles, elke keer dage zoomt / ver pant zijnt nieuwe tiles
-        // Parent class kon een optie zijn maar tmoest sowieso voor die popups dus kheb het dan voor die tiles ook gedaan
         if (htmlDarkModeToggle.checked) {
-            // Set darkmode
-            document.documentElement.style.setProperty("--global-html-color", "var(--global-color-neutral-xxxx-light)");
-            document.documentElement.style.setProperty("--global-html-backgroundColor", "var(--global-color-neutral-xxx-dark)");
-            document.documentElement.style.setProperty("--popup-iconColor", "var(--global-color-neutral-xxxx-light)");
-            document.documentElement.style.setProperty("--popup-detailsTextColor", "var(--global-color-neutral-x-light)");
-            document.documentElement.style.setProperty("--global-leaflet-wekit-filter", "hue-rotate(180deg) invert(100%)");
+            applyDarkmode();
         } else {
-            // Set lightmode
-            document.documentElement.style.setProperty("--global-html-color", "var(--global-color-neutral-xxxx-dark)");
-            document.documentElement.style.setProperty("--global-html-backgroundColor", "var(--global-color-neutral-xxxx-light)");
-            document.documentElement.style.setProperty("--popup-iconColor", "var(--global-color-neutral-xx-dark)");
-            document.documentElement.style.setProperty("--popup-detailsTextColor", "var(--global-color-neutral-x-dark)");
-            document.documentElement.style.setProperty("--global-leaflet-wekit-filter", "none");
+            applyLightmode();
         }
     });
 };

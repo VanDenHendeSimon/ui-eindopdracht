@@ -595,6 +595,7 @@ body {
 }
 
 .leaflet-bar a {
+    color: var(--global-html-color);
     background-color: var(--global-html-backgroundColor);
 }
 
@@ -1178,13 +1179,5 @@ more padding on the right to avoid overlap
         --popup-iconColor: var(--global-color-neutral-xxxx-light);
         --popup-detailsTextColor: var(--global-color-neutral-x-light);
         --global-leaflet-wekit-filter: "hue-rotate(180deg) invert(100%)";
-    }
-
-    .leaflet-bar a {
-        color: var(--global-color-neutral-xxx-light);
-    }
-
-    .leaflet-bar a:hover {
-        background-color: var(--global-color-neutral-dark);
     }
 }
