@@ -276,7 +276,7 @@ body {
 
 .c-popup__date svg {
     height: calc(var(--popup-dateSize) * 1.4);
-    margin: 0 var(--global-whitespace-xs) 0 0;
+    margin: 0 var(--global-whitespace-sm) 0 0;
 }
 
 .c-popup__date p {
