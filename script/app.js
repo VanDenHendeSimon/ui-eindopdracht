@@ -272,7 +272,7 @@ const applyLightmode = function () {
 };
 
 const listenToDarkMode = function () {
-    // Check initial state
+    // Check initial state when loading the page
     if (darkmode()) {
         htmlDarkModeToggle.checked = true;
     } else {
