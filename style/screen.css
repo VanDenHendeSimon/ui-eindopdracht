@@ -115,14 +115,20 @@ body {
     z-index: 30;
 }
 
-.logo {
+.c-logo {
     position: relative;
     display: flex;
     align-items: center;
+
     font-size: 32px;
     color: var(--global-color-neutral-xx-dark);
     fill: var(--global-color-neutral-xx-dark);
     transition: all 0.8s ease;
+}
+
+.c-logo__emoji {
+    margin-left: var(--global-whitespace-sm);
+    /* font-size: 1.6rem; */
 }
 
 .hamburger-menu {
@@ -257,7 +263,27 @@ body {
 }
 
 .c-popup__date {
+    --popup-dateColor: var(--global-color-neutral-x-dark);
+    --popup-dateSize: 0.8rem;
+
+    display: flex;
+    align-items: flex-end;
     margin: 0 0 var(--global-whitespace-md) 0 !important;
+
+    color: var(--popup-dateColor);
+    fill: var(--popup-dateColor);
+}
+
+.c-popup__date svg {
+    height: calc(var(--popup-dateSize) * 1.4);
+    margin: 0 var(--global-whitespace-xs) 0 0;
+}
+
+.c-popup__date p {
+    font-size: var(--popup-dateSize);
+    /* little bit smaller for flex-end alignment with the calendar icon */
+    line-height: calc(var(--popup-dateSize) * 0.75);
+    margin: 0;
 }
 
 .c-popup__text {

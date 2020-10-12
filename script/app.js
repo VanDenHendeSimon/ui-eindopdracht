@@ -1,18 +1,12 @@
 "use strict";
 
-/* Global variables */
 let map;
-
-// Filter circle layers
-let circlesLayer = L.geoJSON();
-
-// Base of the API
 const baseAPI = "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson";
 
 const constructElements = function () {
     const propertyPanel = document.querySelector(".property-panel");
     const hamburgerIcon = document.querySelector(".hamburger-menu");
-    const logo = document.querySelector(".logo");
+    const logo = document.querySelector(".c-logo");
 
     hamburgerIcon.addEventListener("click", () => {
         propertyPanel.classList.toggle("show");
@@ -21,7 +15,6 @@ const constructElements = function () {
     });
 };
 
-/* Adding overlay components */
 const addMarker = function (latlng, label, layer, categoryID) {
     let marker = L.marker(latlng, {
         icon: createIconObject(`icons/${categoryID}.svg`, [20, 20], false),
@@ -87,7 +80,6 @@ const addIcon = function (iconLocation, latlng, layer, popupLabel, size, alignTo
     return marker;
 };
 
-/* Creating the map */
 const createMap = function () {
     const view = [25, 10.5];
     map = L.map("mapid", {
@@ -98,9 +90,6 @@ const createMap = function () {
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     }).addTo(map);
-
-    // GeoJSON
-    circlesLayer.addTo(map);
 
     // Scale and zoom positioning
     L.control
@@ -181,13 +170,15 @@ const showFeatures = function (jsonObject) {
                 const popup = L.popup().setContent(`
                     <div>
                         <h2 class="c-popup__title">${feature.properties.place}</h2>
-                        <p class="c-popup__date">${new Date(feature.properties.time).toLocaleDateString("en-NL")}</p>
+                        <div class="c-popup__date">
+                            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>  -->
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M0 464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V192H0v272zm320-196c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zM192 268c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12h-40c-6.6 0-12-5.4-12-12v-40zM64 268c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12v-40zm0 128c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12H76c-6.6 0-12-5.4-12-12v-40zM400 64h-48V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H160V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v48H48C21.5 64 0 85.5 0 112v48h448v-48c0-26.5-21.5-48-48-48z"></path></svg>
+                            <p>${new Date(feature.properties.time).toLocaleDateString("en-NL")}</p>
+                        </div>
                         <p class="c-popup__text">${mag} on the Richter scale</p>
                         <div class="c-popup__richter-container">
                             <div class="c-popup__richter-bar c-popup__richter-bar--background"></div>
-                            <div class="c-popup__richter-bar c-popup__richter-bar--foreground" style="width:${
-                                (mag / 12) * 100
-                            }%; background-color:${getScaleColor(mag)}"></div>
+                            <div class="c-popup__richter-bar c-popup__richter-bar--foreground" style="width:${(mag / 12) * 100}%; background-color:${getScaleColor(mag)}"></div>
                         </div>
                         <div class="c-popup__richter-labels">
                             <p>😴</p>
@@ -208,7 +199,6 @@ const getFeatures = function () {
     handleData(`${baseAPI}&starttime=2020-01-20&endtime=2020-01-30&minmagnitude=2.5`, showFeatures, apiError);
 };
 
-/* init */
 const init = function () {
     console.log("DOM Content Loaded");
 
