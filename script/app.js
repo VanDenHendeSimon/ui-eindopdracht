@@ -270,6 +270,10 @@ const listenToDarkMode = function () {
 
     // Listen to the input
     htmlDarkModeToggle.addEventListener("input", function () {
+        // Alle variables in de :root omdat die popups dynamisch zijn
+        // Anders moest ik dus elke keer de popup selector gaan oproepen en de variabelen weer overschrijven
+        // zelfde met die leaflet tiles, elke keer dage zoomt / ver pant zijnt nieuwe tiles
+        // Parent class kon een optie zijn maar tmoest sowieso voor die popups dus kheb het dan voor die tiles ook gedaan
         if (htmlDarkModeToggle.checked) {
             // Set darkmode
             document.documentElement.style.setProperty("--global-html-color", "var(--global-color-neutral-xxxx-light)");

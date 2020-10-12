@@ -618,7 +618,9 @@ body {
     margin: 0;
 }
 
-.c-logo__emoji {
+.c-logo__icon {
+    height: 32px;
+    width: 32px;
     margin-left: var(--global-whitespace-sm);
     /* font-size: 1.6rem; */
 }
