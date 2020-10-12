@@ -25,7 +25,6 @@ const constructElements = function () {
     hamburgerIcon.addEventListener("click", () => {
         propertyPanel.classList.toggle("show");
         hamburgerIcon.classList.toggle("change");
-        logo.classList.toggle("light-color");
     });
 };
 

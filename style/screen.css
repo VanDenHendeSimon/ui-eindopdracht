@@ -65,15 +65,15 @@
     --global-whitespace-xl: calc(var(--global-whitespace) * 2); /*  = 48px */
     --global-whitespace-xxl: calc(var(--global-whitespace) * 3); /*  = 72px */
 
-        /* forms */
-        --global-placeholder-color: var(--global-color-neutral-x-light);
-        --global-input-backgroundColor: White;
-        --global-input-color: var(--global-color-neutral-xxxx-dark);
-        --global-input-borderColor: var(--global-color-neutral-xxx-light);
-        --global-input-hover-borderColor: var(--global-color-neutral-xx-light);
-        --global-input-focus-borderColor: var(--global-color-alpha);
-        --global-input-focus-boxShadowColor: var(--global-color-alpha-x-transparent);
-        --global-input-focus-boxShadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
+    /* forms */
+    --global-placeholder-color: var(--global-color-neutral-x-light);
+    --global-input-backgroundColor: White;
+    --global-input-color: var(--global-color-neutral-xxxx-dark);
+    --global-input-borderColor: var(--global-color-neutral-xxx-light);
+    --global-input-hover-borderColor: var(--global-color-neutral-xx-light);
+    --global-input-focus-borderColor: var(--global-color-alpha);
+    --global-input-focus-boxShadowColor: var(--global-color-alpha-x-transparent);
+    --global-input-focus-boxShadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
 }
 
 /*------------------------------------*\
@@ -266,7 +266,7 @@ body {
 .c-property-panel {
     width: 350px;
     height: 100%;
-    background-color: var(--global-color-neutral-xx-dark);
+    background-color: var(--global-html-backgroundColor);
     position: fixed;
     top: 0;
     left: -350px;
@@ -584,6 +584,10 @@ body {
 #COMPONENTS
 \*------------------------------------*/
 
+.leaflet-popup-content-wrapper {
+    background-color: var(--global-html-backgroundColor);
+}
+
 .c-logo {
     position: relative;
     display: flex;
@@ -727,7 +731,8 @@ body {
 }
 
 .c-popup {
-    background-color: var(--global-color-neutral-x-light) !important;
+    --popup-detailsTextColor: var(--global-color-neutral-x-dark);
+    --popup-titleTextColor: var(--global-html-color);
 }
 
 .c-popup__title {
@@ -735,19 +740,19 @@ body {
     line-height: 1.5rem;
 
     margin: 0 0 var(--global-whitespace-xs) 0 !important;
-    color: var(--global-color-neutral-xxx-dark) !important;
+    color: var(--popup-titleTextColor);
 }
 
 .c-popup__date {
-    --popup-dateColor: var(--global-color-neutral-x-dark);
     --popup-dateSize: 0.8rem;
+    --popup-iconColor: var(--global-color-neutral-xx-dark);
 
     display: flex;
     align-items: flex-end;
     margin: 0 0 var(--global-whitespace-md) 0 !important;
 
-    color: var(--popup-dateColor);
-    fill: var(--popup-dateColor);
+    color: var(--popup-detailsTextColor);
+    fill: var(--popup-iconColor);
 }
 
 .c-popup__date svg {
@@ -764,7 +769,7 @@ body {
 
 .c-popup__text {
     margin: 0 0 var(--global-whitespace-xs) 0 !important;
-    color: var(--global-color-neutral-x-dark) !important;
+    color: var(--popup-detailsTextColor) !important;
 }
 
 .c-popup__richter-container {
@@ -878,7 +883,7 @@ more padding on the right to avoid overlap
     padding-bottom: var(--global-whitespace-sm);
     font-size: 1rem;
     line-height: 1.1rem;
-    color: var(--label-color, var(--global-color-neutral-xxx-light));
+    color: var(--label-color, var(--global-html-color));
 
     display: flex;
     justify-content: space-between;
