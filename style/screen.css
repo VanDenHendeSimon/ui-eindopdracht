@@ -679,6 +679,16 @@ body {
     fill: var(--global-color-neutral-xxxx-light);
 }
 
+.c-layer {
+    --layerDuration: 0.3s;
+    --layerTiming: ease-out;
+    transition: fill-opacity var(--layerDuration) var(--layerTiming), stroke-opacity var(--layerDuration) var(--layerTiming);
+}
+
+.u-hidden-layergroup {
+    opacity: 0;
+}
+
 .u-hidden {
     display: none;
 }

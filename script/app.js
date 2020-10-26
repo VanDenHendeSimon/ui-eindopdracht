@@ -173,13 +173,15 @@ const showFeatures = function (jsonObject) {
                 radius: Math.pow(mag, 2.1),
 
                 // Fill
-                // fillColor: "#28636F",
                 fillColor: color,
                 fillOpacity: 0.5,
 
                 // Border
                 weight: 1,
                 color: color,
+
+                // CSS Class
+                className: "c-layer",
             });
         },
         onEachFeature: function (feature, layer) {
@@ -238,13 +240,29 @@ const getFeatures = function () {
 
 const showLayer = function (color) {
     const layerGroup = layerGroups[color];
-    map.addLayer(layerGroup);
+    // map.addLayer(layerGroup);
+
+    // https://mourner.github.io/Leaflet/reference.html#path-options
+    layerGroup.eachLayer(function (layer) {
+        layer.setStyle({
+            fillOpacity: 0.5,
+            opacity: 1,
+        });
+    });
 };
 
 const removeLayer = function (color) {
     // Dont just remove it, set the opacity to 0 over time
     const layerGroup = layerGroups[color];
-    map.removeLayer(layerGroup);
+    // map.removeLayer(layerGroup);
+
+    // https://mourner.github.io/Leaflet/reference.html#path-options
+    layerGroup.eachLayer(function (layer) {
+        layer.setStyle({
+            fillOpacity: 0,
+            opacity: 0,
+        });
+    });
 };
 
 const darkmode = function () {
@@ -300,6 +318,19 @@ const listenToDarkMode = function () {
     });
 };
 
+const listenToFilters = function () {
+    for (const filterElement of document.querySelectorAll(".js-filter")) {
+        filterElement.addEventListener("input", function () {
+            const filterProperty = this.getAttribute("data-filter");
+            if (this.checked) {
+                showLayer(scalarColorMapper[filterProperty]);
+            } else {
+                removeLayer(scalarColorMapper[filterProperty]);
+            }
+        });
+    }
+};
+
 const init = function () {
     console.log("DOM Content Loaded");
 
@@ -316,6 +347,7 @@ const init = function () {
     // Get features ( data )
     getFeatures();
 
+    listenToFilters();
     listenToDarkMode();
 };
 
