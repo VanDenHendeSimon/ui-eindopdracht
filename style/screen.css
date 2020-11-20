@@ -275,7 +275,7 @@ body {
     position: fixed;
     top: 0;
     left: -350px;
-    border-radius: 0 3% 3% 0;
+    /* border-radius: 0 3% 3% 0; */
     z-index: 20;
     transition: var(--global-transition);
 
@@ -374,7 +374,7 @@ body {
 .o-container {
     margin-left: auto;
     margin-right: auto;
-    max-width: 79.5em; /* 79.5 * 16px = 1272 */
+    max-width: 56.25em; /* 56.25 * 16px = 900px */
     width: 100%;
 }
 
@@ -528,6 +528,10 @@ body {
     align-content: space-between;
 }
 
+.o-layout--gap-sm {
+    gap: var(--global-whitespace-sm);
+}
+
 /*
     Objects: List
     ---
@@ -588,6 +592,57 @@ body {
 /*------------------------------------*\
 #COMPONENTS
 \*------------------------------------*/
+
+.c-topbar {
+    padding: var(--global-whitespace-md) 0;
+    position: fixed;
+    width: 100%;
+}
+
+.c-nav {
+}
+
+.c-nav__list {
+    display: flex;
+    gap: var(--global-baseline);
+    margin: 0;
+    padding: 0;
+}
+
+.c-nav__list-item {
+    list-style: none;
+}
+
+.c-nav__list-item-link {
+    text-decoration: none;
+    color: var(--global-color-neutral-xxxx-dark);
+    /* font-size: 14px; */
+}
+
+.c-nav__list-item-link:visited {
+    color: var(--global-color-neutral-xxxx-dark);
+}
+
+.c-header {
+    position: relative;
+    padding: calc(var(--global-whitespace-xl) * 3.25) 0;
+    background-color: var(--global-color-alpha);
+}
+
+.c-header__content {
+}
+
+.c-header__content__lead {
+    margin-bottom: var(--global-whitespace-md);
+}
+
+.c-header__content__lead-title {
+    margin-bottom: var(--global-whitespace-xs);
+}
+
+.c-header__content__lead-text {
+    margin-bottom: var(--global-whitespace-xs);
+}
 
 .leaflet-popup-content-wrapper,
 .leaflet-popup-tip {
@@ -683,6 +738,24 @@ body {
     --layerDuration: 0.3s;
     --layerTiming: ease-out;
     transition: fill-opacity var(--layerDuration) var(--layerTiming), stroke-opacity var(--layerDuration) var(--layerTiming);
+}
+
+.u-only-on-small-devices {
+    display: block;
+}
+
+.u-only-on-big-devices {
+    display: none;
+}
+
+@media (min-width: 992px) {
+    .u-only-on-small-devices {
+        display: none;
+    }
+
+    .u-only-on-big-devices {
+        display: block;
+    }
 }
 
 .u-hidden-layergroup {
@@ -1188,6 +1261,480 @@ more padding on the right to avoid overlap
 
 .u-light-text {
     color: var(--global-color-neutral-xxxx-light);
+}
+
+/*!
+ * html5-device-mockups (https://github.com/pixelsign/html5-device-mockups)
+ * Copyright 2013 - 2018 pixelsign
+ * Licensed under MIT (https://github.com/pixelsign/html5-device-mockups/blob/master/LICENSE.txt)
+ * Last Build: Thu Dec 20 2018 14:05:50
+ */
+.device-wrapper {
+    max-width: 300px;
+    width: 100%;
+}
+
+.device {
+    position: relative;
+    background-size: cover;
+}
+
+.device--big {
+    /* transform: translateY(25%); */
+}
+
+.device::after {
+    position: absolute;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.device .screen {
+    position: absolute;
+    background-size: cover;
+    pointer-events: auto;
+}
+
+.device .button {
+    position: absolute;
+    cursor: pointer;
+}
+
+.device[data-device="iPhoneX"][data-orientation="portrait"][data-color="black"] {
+    padding-bottom: 198.89807163%;
+    background-image: url(./../img/device-mockups/iPhoneX/portrait.png);
+    z-index: initial;
+}
+
+.device[data-device="iPhoneX"][data-orientation="portrait"][data-color="black"] .screen {
+    top: 3.254847645%;
+    left: 7.162534435%;
+    width: 85.67493113%;
+    height: 93.49030471%;
+    border: 0px;
+    z-index: 0;
+}
+
+.device[data-device="iPhoneX"][data-orientation="landscape"][data-color="black"] {
+    padding-bottom: 50.27700831%;
+    background-image: url(./../img/device-mockups/iPhoneX/landscape.png);
+    z-index: initial;
+}
+
+.device[data-device="iPhoneX"][data-orientation="landscape"][data-color="black"] .screen {
+    top: 7.162534435%;
+    left: 3.254847645%;
+    width: 93.49030471%;
+    height: 85.67493113%;
+    border: 0px;
+    z-index: 0;
+}
+
+.device[data-device="iPhoneX"][data-orientation="portrait"][data-color="black"] {
+    padding-bottom: 198.898071625%;
+}
+
+.device[data-device="iPhoneX"][data-orientation="portrait"][data-color="black"] .screen {
+    top: 3.1855955679%;
+    left: 6.8870523416%;
+    width: 86.2258953168%;
+    height: 93.6288088643%;
+}
+
+.device[data-device="iPhoneX"][data-orientation="portrait"][data-color="black"]::after {
+    content: "";
+    background-image: url(./../img/device-mockups/iPhoneX/portrait_black.png);
+}
+
+.device[data-device="iPhoneX"][data-orientation="portrait"][data-color="black"] .button {
+    display: none;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+}
+
+.device[data-device="iPhoneX"][data-orientation="landscape"][data-color="black"] {
+    padding-bottom: 50.2770083102%;
+}
+
+.device[data-device="iPhoneX"][data-orientation="landscape"][data-color="black"] .screen {
+    top: 6.3360881543%;
+    left: 3.4626038781%;
+    width: 93.0747922438%;
+    height: 87.3278236915%;
+}
+
+.device[data-device="iPhoneX"][data-orientation="landscape"][data-color="black"]::after {
+    content: "";
+    background-image: url(./../img/device-mockups/iPhoneX/landscape_black.png);
+}
+
+.device[data-device="iPhoneX"][data-orientation="landscape"][data-color="black"] .button {
+    display: none;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+}
+
+.c-download-icon {
+    height: 3rem;
+    width: auto;
+}
+
+.svg-border-waves {
+    padding-top: 2rem;
+}
+.svg-border-waves svg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3rem;
+    width: 100%;
+}
+
+/*------------------------------------*\
+  #UTILITIES
+\*------------------------------------*/
+
+.u-align-center {
+    margin: 0 auto
+}
+
+.px-md {
+    padding: 0 var(--global-whitespace-md);
+}
+
+@media (min-width: 992px) {
+    .px-md {
+        padding: 0 var(--global-whitespace-lg);
+    }
+}
+
+.text-xs {
+    font-size: 0.7rem !important;
+    line-height: 1rem !important;
+    margin-bottom: 1rem !important;
+}
+
+.text-italic {
+    font-style: italic;
+}
+
+.text-white {
+    color: white !important;
+    fill: white !important;
+}
+
+.text-bg-col {
+    color: var(--global-html-backgroundColor) !important;
+    fill: var(--global-html-backgroundColor) !important;
+}
+
+.u-z-1 {
+    position: relative;
+    z-index: 1;
+}
+
+/*
+    Utilities: spacing
+    ---
+    Utility classes to put specific margins and paddings onto elements
+*/
+
+.u-pt-clear {
+    padding-top: 0 !important;
+}
+
+.u-mb-clear {
+    margin-bottom: 0 !important;
+}
+
+.u-mb-xs {
+    margin-bottom: 4px !important;
+}
+
+.u-mb-sm {
+    margin-bottom: 8px !important;
+}
+
+.u-mb-md {
+    margin-bottom: 16px !important;
+}
+
+.u-mb-lg {
+    margin-bottom: 32px !important;
+}
+
+.u-mb-xl {
+    margin-bottom: 48px !important;
+}
+
+/*
+    Utilities: max-width
+    ---
+    Utility classes to put specific max widths onto elements
+*/
+
+.u-max-width-100 {
+    max-width: 100% !important;
+    width: 100% !important;
+}
+
+.u-max-width-75 {
+    max-width: 75% !important;
+    width: 75% !important;
+}
+
+.u-max-width-xs {
+    max-width: 18em !important;
+}
+
+.u-max-width-sm {
+    max-width: 32em !important;
+}
+
+.u-max-width-md {
+    max-width: 50em !important;
+}
+
+.u-max-width-lg {
+    max-width: 63.5em !important;
+}
+
+.u-max-width-none {
+    max-width: none !important;
+}
+
+@media (min-width: 768px) {
+    .u-max-width-header {
+        width: 576px !important;
+        max-width: 576px !important;
+    }
+}
+
+@media (min-width: 1024px) {
+    .u-max-width-header {
+        width: 926px !important;
+        max-width: 926px !important;
+    }
+}
+
+@media (min-width: 1440px) {
+    .u-max-width-header {
+        width: 1272px !important;
+        max-width: 1272px !important;
+    }
+}
+
+.u-max-height-md {
+    max-height: 400px !important;
+}
+
+/*
+    Utility: Flex
+    ---
+    Utility classes to put specific flex properties onto elements
+    Will be mostly used on o-layout__item
+*/
+
+.u-flex-basis-auto {
+    flex-basis: auto !important;
+}
+
+.u-flex-grow-1 {
+    flex-grow: 1 !important;
+}
+
+.u-1-of-2 {
+    flex-basis: calc(100% / 2) !important;
+}
+
+.u-1-of-3 {
+    flex-basis: calc(100% / 3) !important;
+}
+
+.u-2-of-3 {
+    flex-basis: calc(100% / 3 * 2) !important;
+}
+
+.u-1-of-4 {
+    flex-basis: calc(100% / 4) !important;
+}
+
+.u-3-of-4 {
+    flex-basis: calc(100% / 4 * 3) !important;
+}
+
+.u-1-of-5 {
+    flex-basis: calc(100% / 5) !important;
+}
+
+.u-2-of-5 {
+    flex-basis: calc(100% / 5 * 2) !important;
+}
+
+.u-3-of-5 {
+    flex-basis: calc(100% / 5 * 3) !important;
+}
+
+.u-4-of-5 {
+    flex-basis: calc(100% / 5 * 4) !important;
+}
+
+.u-1-of-6 {
+    flex-basis: calc(100% / 6) !important;
+}
+
+.u-5-of-6 {
+    flex-basis: calc(100% / 6 * 5) !important;
+}
+
+@media (min-width: 576px) {
+    .u-1-of-2-bp1 {
+        flex-basis: calc(100% / 2) !important;
+    }
+    .u-1-of-3-bp1 {
+        flex-basis: calc(100% / 3) !important;
+    }
+    .u-2-of-3-bp1 {
+        flex-basis: calc(100% / 3 * 2) !important;
+    }
+    .u-1-of-4-bp1 {
+        flex-basis: calc(100% / 4) !important;
+    }
+    .u-3-of-4-bp1 {
+        flex-basis: calc(100% / 4 * 3) !important;
+    }
+    .u-1-of-5-bp1 {
+        flex-basis: calc(100% / 5) !important;
+    }
+    .u-2-of-5-bp1 {
+        flex-basis: calc(100% / 5 * 2) !important;
+    }
+    .u-3-of-5-bp1 {
+        flex-basis: calc(100% / 5 * 3) !important;
+    }
+    .u-4-of-5-bp1 {
+        flex-basis: calc(100% / 5 * 4) !important;
+    }
+    .u-1-of-6-bp1 {
+        flex-basis: calc(100% / 6) !important;
+    }
+    .u-5-of-6-bp1 {
+        flex-basis: calc(100% / 6 * 5) !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .u-1-of-2-bp2 {
+        flex-basis: calc(100% / 2) !important;
+    }
+    .u-1-of-3-bp2 {
+        flex-basis: calc(100% / 3) !important;
+    }
+    .u-2-of-3-bp2 {
+        flex-basis: calc(100% / 3 * 2) !important;
+    }
+    .u-1-of-4-bp2 {
+        flex-basis: calc(100% / 4) !important;
+    }
+    .u-3-of-4-bp2 {
+        flex-basis: calc(100% / 4 * 3) !important;
+    }
+    .u-1-of-5-bp2 {
+        flex-basis: calc(100% / 5) !important;
+    }
+    .u-2-of-5-bp2 {
+        flex-basis: calc(100% / 5 * 2) !important;
+    }
+    .u-3-of-5-bp2 {
+        flex-basis: calc(100% / 5 * 3) !important;
+    }
+    .u-4-of-5-bp2 {
+        flex-basis: calc(100% / 5 * 4) !important;
+    }
+    .u-1-of-6-bp2 {
+        flex-basis: calc(100% / 6) !important;
+    }
+    .u-5-of-6-bp2 {
+        flex-basis: calc(100% / 6 * 5) !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .u-1-of-2-bp3 {
+        flex-basis: calc(100% / 2) !important;
+    }
+    .u-1-of-3-bp3 {
+        flex-basis: calc(100% / 3) !important;
+    }
+    .u-2-of-3-bp3 {
+        flex-basis: calc(100% / 3 * 2) !important;
+    }
+    .u-1-of-4-bp3 {
+        flex-basis: calc(100% / 4) !important;
+    }
+    .u-3-of-4-bp3 {
+        flex-basis: calc(100% / 4 * 3) !important;
+    }
+    .u-1-of-5-bp3 {
+        flex-basis: calc(100% / 5) !important;
+    }
+    .u-2-of-5-bp3 {
+        flex-basis: calc(100% / 5 * 2) !important;
+    }
+    .u-3-of-5-bp3 {
+        flex-basis: calc(100% / 5 * 3) !important;
+    }
+    .u-4-of-5-bp3 {
+        flex-basis: calc(100% / 5 * 4) !important;
+    }
+    .u-1-of-6-bp3 {
+        flex-basis: calc(100% / 6) !important;
+    }
+    .u-5-of-6-bp3 {
+        flex-basis: calc(100% / 6 * 5) !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    .u-1-of-2-bp4 {
+        flex-basis: calc(100% / 2) !important;
+    }
+    .u-1-of-3-bp4 {
+        flex-basis: calc(100% / 3) !important;
+    }
+    .u-2-of-3-bp4 {
+        flex-basis: calc(100% / 3 * 2) !important;
+    }
+    .u-1-of-4-bp4 {
+        flex-basis: calc(100% / 4) !important;
+    }
+    .u-3-of-4-bp4 {
+        flex-basis: calc(100% / 4 * 3) !important;
+    }
+    .u-1-of-5-bp4 {
+        flex-basis: calc(100% / 5) !important;
+    }
+    .u-2-of-5-bp4 {
+        flex-basis: calc(100% / 5 * 2) !important;
+    }
+    .u-3-of-5-bp4 {
+        flex-basis: calc(100% / 5 * 3) !important;
+    }
+    .u-4-of-5-bp4 {
+        flex-basis: calc(100% / 5 * 4) !important;
+    }
+    .u-1-of-6-bp4 {
+        flex-basis: calc(100% / 6) !important;
+    }
+    .u-5-of-6-bp4 {
+        flex-basis: calc(100% / 6 * 5) !important;
+    }
 }
 
 @media (prefers-color-scheme: dark) {

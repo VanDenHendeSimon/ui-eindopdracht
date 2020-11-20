@@ -19,16 +19,6 @@ const scalarColorMapper = {
     major: "#ED2939",
 };
 
-const listenToHamburger = function () {
-    const propertyPanel = document.querySelector(".js-property-panel");
-    const hamburgerIcon = document.querySelector(".hamburger-menu");
-
-    hamburgerIcon.addEventListener("click", () => {
-        propertyPanel.classList.toggle("show");
-        hamburgerIcon.classList.toggle("change");
-    });
-};
-
 const getDomElements = function () {
     htmlDarkModeToggle = document.querySelector(".js-dark-mode");
 };
@@ -337,8 +327,6 @@ const init = function () {
     // Define map stuff
     createMap();
 
-    // Construct navigation and other static elements
-    listenToHamburger();
     getDomElements();
 
     // Track user
