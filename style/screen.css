@@ -872,14 +872,25 @@ body {
 }
 
 .c-sidebar__properties {
-    display: none;
+    display: block;
+
+    height: auto;
+    max-height: 0;
+
+    opacity: 0;
+    padding: 0;
+
     overflow-y: auto;
     overflow-x: hidden;
-    padding: 0 var(--global-whitespace) var(--global-whitespace) var(--global-whitespace);
+
+    transition: var(--global-transition);
 }
 
 .c-sidebar__properties--force-show {
-    display: block !important;
+    height: auto;
+    max-height: 100vh;
+    opacity: 1;
+    padding: 0 var(--global-whitespace) var(--global-whitespace) var(--global-whitespace);
 }
 
 @media (min-width: 992px) {
@@ -906,7 +917,10 @@ body {
     }
 
     .c-sidebar__properties {
-        display: block;
+        height: auto;
+        max-height: 100vh;
+        opacity: 1;
+        padding: 0 var(--global-whitespace) var(--global-whitespace) var(--global-whitespace);
     }
 }
 
