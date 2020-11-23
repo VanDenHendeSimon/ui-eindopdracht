@@ -209,9 +209,7 @@ const showFeatures = function (jsonObject) {
                         </div>
                         <div class="c-popup__richter-labels">
                             <p>😴</p>
-                            <!-- <p>😨</p> -->
                             <p>😱</p>
-                            <!-- <p>🤕</p> -->
                         </div>
                     </div>
                     `);
