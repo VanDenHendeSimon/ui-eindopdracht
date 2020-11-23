@@ -288,10 +288,20 @@ body {
     z-index: 20;
     transition: var(--global-transition);
 
-    padding: var(--global-whitespace);
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr;
 
+}
+
+.c-sidebar__logo {
+    padding: var(--global-whitespace);
+}
+
+.c-sidebar__properties {
     overflow-y: auto;
     overflow-x: hidden;
+    padding: 0 var(--global-whitespace);
 }
 
 .scrollable-categories {
