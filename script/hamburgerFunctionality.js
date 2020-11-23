@@ -6,11 +6,7 @@ const listenToHamburger = function () {
     const properties = document.querySelector(".js-properties");
 
     hamburgerIcon.addEventListener("input", () => {
-        if (hamburgerIcon.checked) {
-            properties.classList.add("c-sidebar__properties--force-show");
-        }   else {
-            properties.classList.remove("c-sidebar__properties--force-show");
-        }
+        hamburgerIcon.checked ? properties.classList.add("c-sidebar__properties--force-show") : properties.classList.remove("c-sidebar__properties--force-show");
     });
 };
 

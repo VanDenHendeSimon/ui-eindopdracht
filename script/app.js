@@ -152,10 +152,10 @@ const apiError = function (error) {
     stopLoading();
 };
 
-const stopLoading = function() {
+const stopLoading = function () {
     htmlLoading.style.setProperty("opacity", 0);
     htmlLoading.style.setProperty("animation", "none");
-}
+};
 
 const showFeatures = function (jsonObject) {
     stopLoading();
@@ -265,6 +265,7 @@ const darkmode = function () {
 };
 
 const applyDarkmode = function () {
+    console.log("applying darkmode");
     // Alle variables in de :root omdat die popups dynamisch zijn
     // Anders moest ik dus elke keer de popup selector gaan oproepen en de variabelen weer overschrijven
     // zelfde met die leaflet tiles, elke keer dage zoomt / ver pant zijnt nieuwe tiles
@@ -284,13 +285,10 @@ const applyLightmode = function () {
     document.documentElement.style.setProperty("--global-leaflet-wekit-filter", "none");
 };
 
-const listenToDarkMode = function () {
+const handleDarkMode = function () {
     // Check initial state when loading the page
-    if (darkmode()) {
-        htmlDarkModeToggle.checked = true;
-    } else {
-        htmlDarkModeToggle.checked = false;
-    }
+    htmlDarkModeToggle.checked = darkmode();
+    htmlDarkModeToggle.checked ? applyDarkmode() : applyLightmode();
 
     // Update when the system changes
     window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function (e) {
@@ -303,13 +301,13 @@ const listenToDarkMode = function () {
         }
     });
 
+    listenToDarkMode();
+};
+
+const listenToDarkMode = function () {
     // Listen to the input
     htmlDarkModeToggle.addEventListener("input", function () {
-        if (htmlDarkModeToggle.checked) {
-            applyDarkmode();
-        } else {
-            applyLightmode();
-        }
+        htmlDarkModeToggle.checked ? applyDarkmode() : applyLightmode();
     });
 };
 
@@ -341,7 +339,7 @@ const init = function () {
     getFeatures();
 
     listenToFilters();
-    listenToDarkMode();
+    handleDarkMode();
 };
 
 document.addEventListener("DOMContentLoaded", init);
