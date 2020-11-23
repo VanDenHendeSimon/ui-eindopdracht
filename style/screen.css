@@ -852,20 +852,9 @@ body {
     stroke: var(--global-color-alpha);
     stroke-width: 0.85;
     stroke-linecap: round;
-}
 
-.change .c-hamburger-menu__line--1 {
-    transform: rotateZ(-405deg) translate(-9px, 6px);
-    box-shadow: none;
-}
-
-.change .c-hamburger-menu__line--2 {
-    opacity: 0;
-}
-
-.change .c-hamburger-menu__line--3 {
-    transform: rotateZ(405deg) translate(-9px, -6px);
-    box-shadow: none;
+    transition: var(--global-transition);
+    transform-origin: center;
 }
 
 .c-sidebar__properties {
@@ -1403,6 +1392,18 @@ more padding on the right to avoid overlap
 .c-option--hidden:checked + .c-custom-option .c-custom-option__symbol {
     opacity: 1; /* Show the symbol when the invisible checkbox/radio button is checked */
     transform: scale(1);
+}
+
+.c-option--hidden:checked + .c-hamburger-menu .c-hamburger-menu__line--1 {
+    transform: rotateZ(-405deg) translateY(2px);
+}
+
+.c-option--hidden:checked + .c-hamburger-menu .c-hamburger-menu__line--2 {
+    opacity: 0;
+}
+
+.c-option--hidden:checked + .c-hamburger-menu .c-hamburger-menu__line--3 {
+    transform: rotateZ(405deg) translateY(-2px);
 }
 
 /*

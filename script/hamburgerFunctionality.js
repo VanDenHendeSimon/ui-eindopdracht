@@ -6,7 +6,6 @@ const listenToHamburger = function () {
     const properties = document.querySelector(".js-properties");
 
     hamburgerIcon.addEventListener("click", () => {
-        hamburgerIcon.classList.toggle("change");
         properties.classList.toggle("c-sidebar__properties--force-show");
     });
 };
