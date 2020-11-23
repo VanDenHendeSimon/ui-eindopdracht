@@ -274,21 +274,24 @@ body {
     font-family: sans-serif;
 }
 
-.c-property-panel {
-    width: 350px;
+.c-app {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 350px 1fr;
+
+    min-height: 100vh;
+}
+
+.c-app__sidebar {
     height: 100vh;
     background-color: var(--global-html-backgroundColor);
-    position: fixed;
-    top: 0;
-    left: -350px;
-    /* border-radius: 0 3% 3% 0; */
     z-index: 20;
     transition: var(--global-transition);
 
     padding: var(--global-whitespace);
 
-    /* overflow-y: auto;
-    overflow-y: hidden; */
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .scrollable-categories {

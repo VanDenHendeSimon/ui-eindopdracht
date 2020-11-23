@@ -53,72 +53,75 @@
             </div>
         </div>
 
-        <div class="js-property-panel c-property-panel">
-            <div class="offset">
-                <!--
-                <div class="c-input">
-                    <input type="text" name="address" id="address" class="input-field">
-                </div>
-                -->
-                <div class="o-section">
-                    <h3>Filter options</h3>
-                    <ul class="o-list c-option-list">
-                        <li class="c-form-field c-form-field--option c-option-list__item">
-                            <input class="o-hide-accessible c-option c-option--hidden js-filter" data-filter="minor" type="checkbox" id="checkbox1" checked />
-                            <label class="c-label c-label--option c-custom-option" for="checkbox1">
-                                <span class="c-custom-option__fake-input c-custom-option__fake-input--checkbox">
-                                    <svg class="c-custom-option__symbol" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6.75">
-                                        <path d="M4.75,9.5a1,1,0,0,1-.707-.293l-2.25-2.25A1,1,0,1,1,3.207,5.543L4.75,7.086,8.793,3.043a1,1,0,0,1,1.414,1.414l-4.75,4.75A1,1,0,0,1,4.75,9.5" transform="translate(-1.5 -2.75)" />
-                                    </svg>
-                                </span>
-                                😴 Minor
-                            </label>
-                        </li>
-                        <li class="c-form-field c-form-field--option c-option-list__item">
-                            <input class="o-hide-accessible c-option c-option--hidden js-filter" data-filter="moderate" type="checkbox" id="checkbox2" checked />
-                            <label class="c-label c-label--option c-custom-option" for="checkbox2">
-                                <span class="c-custom-option__fake-input c-custom-option__fake-input--checkbox">
-                                    <svg class="c-custom-option__symbol" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6.75">
-                                        <path d="M4.75,9.5a1,1,0,0,1-.707-.293l-2.25-2.25A1,1,0,1,1,3.207,5.543L4.75,7.086,8.793,3.043a1,1,0,0,1,1.414,1.414l-4.75,4.75A1,1,0,0,1,4.75,9.5" transform="translate(-1.5 -2.75)" />
-                                    </svg>
-                                </span>
-                                🥱 Moderate
-                            </label>
-                        </li>
-                        <li class="c-form-field c-form-field--option c-option-list__item">
-                            <input class="o-hide-accessible c-option c-option--hidden js-filter" data-filter="strong" type="checkbox" id="checkbox3" checked />
-                            <label class="c-label c-label--option c-custom-option" for="checkbox3">
-                                <span class="c-custom-option__fake-input c-custom-option__fake-input--checkbox">
-                                    <svg class="c-custom-option__symbol" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6.75">
-                                        <path d="M4.75,9.5a1,1,0,0,1-.707-.293l-2.25-2.25A1,1,0,1,1,3.207,5.543L4.75,7.086,8.793,3.043a1,1,0,0,1,1.414,1.414l-4.75,4.75A1,1,0,0,1,4.75,9.5" transform="translate(-1.5 -2.75)" />
-                                    </svg>
-                                </span>
-                                😨 Strong
-                            </label>
-                        </li>
-                        <li class="c-form-field c-form-field--option c-option-list__item">
-                            <input class="o-hide-accessible c-option c-option--hidden js-filter" data-filter="major" type="checkbox" id="checkbox4" checked />
-                            <label class="c-label c-label--option c-custom-option" for="checkbox4">
-                                <span class="c-custom-option__fake-input c-custom-option__fake-input--checkbox">
-                                    <svg class="c-custom-option__symbol" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6.75">
-                                        <path d="M4.75,9.5a1,1,0,0,1-.707-.293l-2.25-2.25A1,1,0,1,1,3.207,5.543L4.75,7.086,8.793,3.043a1,1,0,0,1,1.414,1.414l-4.75,4.75A1,1,0,0,1,4.75,9.5" transform="translate(-1.5 -2.75)" />
-                                    </svg>
-                                </span>
-                                😱 Major
-                            </label>
-                        </li>
-                    </ul>
-                </div>
-                <div class="o-section">
-                    <h3>Preferences</h3>
-                    <input class="o-hide-accessible c-option c-option--hidden js-dark-mode" type="checkbox" id="toggle3" />
-                    <label class="c-label c-label--option c-custom-toggle c-custom-toggle--inverted" for="toggle3">
-                        <span class="c-custom-toggle__fake-input"> </span>
-                        Dark mode
-                    </label>
+        <div class="c-app">
+            <div class="c-app__sidebar js-property-panel">
+                <div class="offset">
+                    <!--
+                    <div class="c-input">
+                        <input type="text" name="address" id="address" class="input-field">
+                    </div>
+                    -->
+                    <div class="o-section">
+                        <h3>Filter options</h3>
+                        <ul class="o-list c-option-list">
+                            <li class="c-form-field c-form-field--option c-option-list__item">
+                                <input class="o-hide-accessible c-option c-option--hidden js-filter" data-filter="minor" type="checkbox" id="checkbox1" checked />
+                                <label class="c-label c-label--option c-custom-option" for="checkbox1">
+                                    <span class="c-custom-option__fake-input c-custom-option__fake-input--checkbox">
+                                        <svg class="c-custom-option__symbol" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6.75">
+                                            <path d="M4.75,9.5a1,1,0,0,1-.707-.293l-2.25-2.25A1,1,0,1,1,3.207,5.543L4.75,7.086,8.793,3.043a1,1,0,0,1,1.414,1.414l-4.75,4.75A1,1,0,0,1,4.75,9.5" transform="translate(-1.5 -2.75)" />
+                                        </svg>
+                                    </span>
+                                    😴 Minor
+                                </label>
+                            </li>
+                            <li class="c-form-field c-form-field--option c-option-list__item">
+                                <input class="o-hide-accessible c-option c-option--hidden js-filter" data-filter="moderate" type="checkbox" id="checkbox2" checked />
+                                <label class="c-label c-label--option c-custom-option" for="checkbox2">
+                                    <span class="c-custom-option__fake-input c-custom-option__fake-input--checkbox">
+                                        <svg class="c-custom-option__symbol" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6.75">
+                                            <path d="M4.75,9.5a1,1,0,0,1-.707-.293l-2.25-2.25A1,1,0,1,1,3.207,5.543L4.75,7.086,8.793,3.043a1,1,0,0,1,1.414,1.414l-4.75,4.75A1,1,0,0,1,4.75,9.5" transform="translate(-1.5 -2.75)" />
+                                        </svg>
+                                    </span>
+                                    🥱 Moderate
+                                </label>
+                            </li>
+                            <li class="c-form-field c-form-field--option c-option-list__item">
+                                <input class="o-hide-accessible c-option c-option--hidden js-filter" data-filter="strong" type="checkbox" id="checkbox3" checked />
+                                <label class="c-label c-label--option c-custom-option" for="checkbox3">
+                                    <span class="c-custom-option__fake-input c-custom-option__fake-input--checkbox">
+                                        <svg class="c-custom-option__symbol" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6.75">
+                                            <path d="M4.75,9.5a1,1,0,0,1-.707-.293l-2.25-2.25A1,1,0,1,1,3.207,5.543L4.75,7.086,8.793,3.043a1,1,0,0,1,1.414,1.414l-4.75,4.75A1,1,0,0,1,4.75,9.5" transform="translate(-1.5 -2.75)" />
+                                        </svg>
+                                    </span>
+                                    😨 Strong
+                                </label>
+                            </li>
+                            <li class="c-form-field c-form-field--option c-option-list__item">
+                                <input class="o-hide-accessible c-option c-option--hidden js-filter" data-filter="major" type="checkbox" id="checkbox4" checked />
+                                <label class="c-label c-label--option c-custom-option" for="checkbox4">
+                                    <span class="c-custom-option__fake-input c-custom-option__fake-input--checkbox">
+                                        <svg class="c-custom-option__symbol" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 6.75">
+                                            <path d="M4.75,9.5a1,1,0,0,1-.707-.293l-2.25-2.25A1,1,0,1,1,3.207,5.543L4.75,7.086,8.793,3.043a1,1,0,0,1,1.414,1.414l-4.75,4.75A1,1,0,0,1,4.75,9.5" transform="translate(-1.5 -2.75)" />
+                                        </svg>
+                                    </span>
+                                    😱 Major
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="o-section">
+                        <h3>Preferences</h3>
+                        <input class="o-hide-accessible c-option c-option--hidden js-dark-mode" type="checkbox" id="toggle3" />
+                        <label class="c-label c-label--option c-custom-toggle c-custom-toggle--inverted" for="toggle3">
+                            <span class="c-custom-toggle__fake-input"> </span>
+                            Dark mode
+                        </label>
+                    </div>
                 </div>
             </div>
+            <div class="c-app__map" id="mapid"></div>
         </div>
-        <div id="mapid"></div>
+
     </body>
 </html>
