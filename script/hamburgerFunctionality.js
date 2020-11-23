@@ -5,8 +5,12 @@ const listenToHamburger = function () {
     const hamburgerIcon = document.querySelector(".js-hamburger-menu");
     const properties = document.querySelector(".js-properties");
 
-    hamburgerIcon.addEventListener("click", () => {
-        properties.classList.toggle("c-sidebar__properties--force-show");
+    hamburgerIcon.addEventListener("input", () => {
+        if (hamburgerIcon.checked) {
+            properties.classList.add("c-sidebar__properties--force-show");
+        }   else {
+            properties.classList.remove("c-sidebar__properties--force-show");
+        }
     });
 };
 

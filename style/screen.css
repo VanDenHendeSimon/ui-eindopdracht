@@ -846,6 +846,10 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+
+    /* Enable below to enable box around hamburger menu when in focus / activated */
+    /* border: 2px solid var(--custom-option-borderColor, rgba(0,0,0,0));
+    box-shadow: var(--custom-option-boxShadow, 0); */
 }
 
 .c-hamburger-menu__line {
@@ -1383,6 +1387,12 @@ more padding on the right to avoid overlap
 
 .c-option--hidden:focus + .c-custom-option,
 .c-option--hidden:active + .c-custom-option {
+    --custom-option-borderColor: var(--global-input-focus-borderColor);
+    --custom-option-boxShadow: var(--global-input-focus-boxShadow);
+}
+
+.c-option--hidden:focus + .c-hamburger-menu,
+.c-option--hidden:active + .c-hamburger-menu {
     --custom-option-borderColor: var(--global-input-focus-borderColor);
     --custom-option-boxShadow: var(--global-input-focus-boxShadow);
 }
