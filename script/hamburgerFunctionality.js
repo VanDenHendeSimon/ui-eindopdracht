@@ -2,12 +2,12 @@
 
 // Construct navigation and other static elements
 const listenToHamburger = function () {
-    const propertyPanel = document.querySelector(".js-property-panel");
-    const hamburgerIcon = document.querySelector(".hamburger-menu");
+    const hamburgerIcon = document.querySelector(".js-hamburger-menu");
+    const properties = document.querySelector(".js-properties");
 
     hamburgerIcon.addEventListener("click", () => {
-        propertyPanel.classList.toggle("show");
         hamburgerIcon.classList.toggle("change");
+        properties.classList.toggle("c-sidebar__properties--force-show");
     });
 };
 
