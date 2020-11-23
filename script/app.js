@@ -265,7 +265,6 @@ const darkmode = function () {
 };
 
 const applyDarkmode = function () {
-    console.log("applying darkmode");
     // Alle variables in de :root omdat die popups dynamisch zijn
     // Anders moest ik dus elke keer de popup selector gaan oproepen en de variabelen weer overschrijven
     // zelfde met die leaflet tiles, elke keer dage zoomt / ver pant zijnt nieuwe tiles
@@ -275,6 +274,9 @@ const applyDarkmode = function () {
     document.documentElement.style.setProperty("--popup-iconColor", "var(--global-color-neutral-xxxx-light)");
     document.documentElement.style.setProperty("--popup-detailsTextColor", "var(--global-color-neutral-x-light)");
     document.documentElement.style.setProperty("--global-leaflet-wekit-filter", "hue-rotate(180deg) invert(100%)");
+    
+    document.documentElement.style.setProperty("--global-html-color-contrast-sm", "var(--global-color-neutral-x-dark)");
+    document.documentElement.style.setProperty("--global-html-color-contrast-md", "var(--global-color-neutral-xx-dark)");
 };
 
 const applyLightmode = function () {
@@ -283,6 +285,9 @@ const applyLightmode = function () {
     document.documentElement.style.setProperty("--popup-iconColor", "var(--global-color-neutral-xx-dark)");
     document.documentElement.style.setProperty("--popup-detailsTextColor", "var(--global-color-neutral-x-dark)");
     document.documentElement.style.setProperty("--global-leaflet-wekit-filter", "none");
+
+    document.documentElement.style.setProperty("--global-html-color-contrast-sm", "var(--global-color-neutral-light)");
+    document.documentElement.style.setProperty("--global-html-color-contrast-md", "var(--global-color-neutral-xx-light)");
 };
 
 const handleDarkMode = function () {

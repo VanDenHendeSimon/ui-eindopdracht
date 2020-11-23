@@ -53,6 +53,9 @@
     --global-html-backgroundColor: var(--global-color-neutral-xxxx-light);
     --global-selection-backgroundColor: var(--global-color-alpha);
 
+    --global-html-color-contrast-sm: var(--global-color-neutral-light);
+    --global-html-color-contrast-md: var(--global-color-neutral-xx-light);
+
     /* borders */
     --global-borderRadius: 3px;
     --global-borderWidth: 1px;
@@ -125,6 +128,31 @@ html {
     background: var(--global-selection-backgroundColor);
     color: white;
     text-shadow: none;
+}
+
+/*
+* Custom scrollbar:
+* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_custom_scrollbar
+*/
+
+::-webkit-scrollbar {
+    width: 8px;
+    transition: var(--global-transition);
+}
+
+::-webkit-scrollbar-track {
+    transition: var(--global-transition);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--global-html-color-contrast-md);
+    border-radius: 4px;
+
+    transition: var(--global-transition);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--global-html-color-contrast-sm);
 }
 
 /*------------------------------------*\
@@ -2040,5 +2068,8 @@ more padding on the right to avoid overlap
         --popup-iconColor: var(--global-color-neutral-xxxx-light);
         --popup-detailsTextColor: var(--global-color-neutral-x-light);
         --global-leaflet-wekit-filter: "hue-rotate(180deg) invert(100%)";
+
+        --global-html-color-contrast-sm: var(--global-color-neutral-x-dark);
+        --global-html-color-contrast-md: var(--global-color-neutral-xx-dark);
     }
 }
