@@ -876,6 +876,11 @@ body {
     transition: var(--global-transition);
 }
 
+.c-properties__title {
+    color: var(--global-html-color);
+    transition: var(--global-transition);
+}
+
 .c-sidebar__properties--force-show {
     height: auto;
     max-height: 100vh;
@@ -1228,6 +1233,7 @@ more padding on the right to avoid overlap
     font-size: 1rem;
     line-height: 1.1rem;
     color: var(--global-html-color);
+    transition: var(--global-transition);
 
     display: flex;
     justify-content: space-between;
