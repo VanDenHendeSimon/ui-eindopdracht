@@ -714,6 +714,13 @@ body {
     margin-bottom: 32px;
 }
 
+.c-explenation__addition {
+    font-size: 0.7rem;
+    line-height: 1rem;
+    margin-bottom: var(--global-whitespace-lg);
+    font-style: italic;
+}
+
 .c-explenation__figure {
     display: block;
     position: relative;
@@ -1862,6 +1869,19 @@ more padding on the right to avoid overlap
     Utility classes to put specific flex properties onto elements
     Will be mostly used on o-layout__item
 */
+
+.u-center-bp2 {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+@media(min-width: 768px) {
+    .u-center-bp2 {
+        justify-content: start;
+        text-align: start;
+    }
+}
 
 .u-flex-basis-auto {
     flex-basis: auto !important;
