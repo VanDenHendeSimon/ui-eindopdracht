@@ -827,6 +827,8 @@ body {
     display: grid;
     grid-template-rows: auto 1fr;
     grid-template-columns: 1fr;
+
+    box-shadow: 0 10px 6px rgba(0, 0, 0, 0.02);
 }
 
 .c-sidebar__top {
@@ -852,7 +854,7 @@ body {
     border-radius: 2px;
     background-color: var(--global-color-alpha);
     transition: all 0.8s ease;
-    box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.2);
 }
 
 /* HERE */
@@ -910,6 +912,9 @@ body {
         display: grid;
         grid-template-rows: auto 1fr;
         grid-template-columns: 1fr;
+
+        box-shadow: 10px 0 6px rgba(0, 0, 0, 0.02);
+        /* box-shadow: none; */
     }
 
     .c-hamburger-menu__line {
