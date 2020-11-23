@@ -274,72 +274,6 @@ body {
     font-family: sans-serif;
 }
 
-.c-app {
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: 350px 1fr;
-
-    min-height: 100vh;
-}
-
-.c-app__sidebar {
-    height: 100vh;
-    background-color: var(--global-html-backgroundColor);
-    z-index: 20;
-    transition: var(--global-transition);
-
-    display: grid;
-    grid-template-rows: auto 1fr;
-    grid-template-columns: 1fr;
-
-}
-
-.c-sidebar__logo {
-    padding: var(--global-whitespace);
-}
-
-.c-sidebar__properties {
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding: 0 var(--global-whitespace);
-}
-
-.scrollable-categories {
-    overflow-y: auto; /* makes this section scrollable */
-    position: relative;
-    height: calc(100vh - 150px);
-}
-
-.arrow-icon {
-    /* fill: var(--main-dark); */
-    fill: var(--global-color-alpha);
-    transition: all 0.3s ease-in-out;
-}
-
-.show__icon {
-    fill: var(--global-color-alpha);
-}
-
-.show__icon--open {
-    transform: rotateZ(90deg);
-}
-
-.show {
-    left: 0;
-    box-shadow: 6px 0px 100px 0px rgba(0, 0, 0, 0.3);
-}
-
-.static-row {
-    width: 100%;
-    height: 32px;
-
-    position: fixed;
-    display: flex;
-    top: var(--global-whitespace-xl);
-    left: var(--global-whitespace);
-    z-index: 30;
-}
-
 /*------------------------------------*\
   #OBJECTS
 \*------------------------------------*/
@@ -874,6 +808,52 @@ body {
 
 .c-header__content__lead-text {
     margin-bottom: var(--global-whitespace-xs);
+}
+
+.c-app {
+    min-height: 100vh;
+}
+
+.c-app__sidebar {
+    width: 0;
+    height: 0;
+
+    background-color: var(--global-html-backgroundColor);
+    z-index: 20;
+    transition: var(--global-transition);
+
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr;
+}
+
+.c-sidebar__logo {
+    padding: var(--global-whitespace);
+}
+
+.c-sidebar__properties {
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0 var(--global-whitespace);
+}
+
+@media (min-width: 992px) {
+    .c-app {
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: 350px 1fr;
+    }
+
+    .c-app__sidebar {
+        height: 100vh;
+        background-color: var(--global-html-backgroundColor);
+        z-index: 20;
+        transition: var(--global-transition);
+
+        display: grid;
+        grid-template-rows: auto 1fr;
+        grid-template-columns: 1fr;
+    }
 }
 
 .leaflet-popup-content-wrapper,
