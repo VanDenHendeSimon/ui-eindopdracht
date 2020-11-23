@@ -1605,10 +1605,6 @@ more padding on the right to avoid overlap
     background-size: cover;
 }
 
-.device--big {
-    /* transform: translateY(25%); */
-}
-
 .device::after {
     position: absolute;
     background-size: cover;
