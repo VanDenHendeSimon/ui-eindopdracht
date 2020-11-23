@@ -6,7 +6,7 @@ const baseAPI = "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson
 //array to store layers for each feature type
 let layerGroups = [];
 
-let htmlDarkModeToggle;
+let htmlDarkModeToggle, htmlLoading;
 
 const maxMinorMag = 4;
 const maxModerateMag = 5;
@@ -21,6 +21,7 @@ const scalarColorMapper = {
 
 const getDomElements = function () {
     htmlDarkModeToggle = document.querySelector(".js-dark-mode");
+    htmlLoading = document.querySelector(".js-loading");
 };
 
 const addMarker = function (latlng, label, layer, categoryID) {
@@ -148,10 +149,16 @@ const getScaleColor = function (mag) {
 
 const apiError = function (error) {
     console.log(error);
+    stopLoading();
 };
 
+const stopLoading = function() {
+    htmlLoading.style.setProperty("opacity", 0);
+    htmlLoading.style.setProperty("animation", "none");
+}
+
 const showFeatures = function (jsonObject) {
-    console.log(jsonObject);
+    stopLoading();
 
     L.geoJSON(jsonObject.features, {
         pointToLayer: function (feature, latlng) {

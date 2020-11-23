@@ -888,6 +888,10 @@ body {
     padding: 0 var(--global-whitespace) var(--global-whitespace) var(--global-whitespace);
 }
 
+.c-app__map {
+    position: relative;
+}
+
 @media (min-width: 992px) {
     .c-app {
         display: grid;
@@ -915,6 +919,40 @@ body {
         max-height: 100vh;
         opacity: 1;
         padding: 0 var(--global-whitespace) var(--global-whitespace) var(--global-whitespace);
+    }
+}
+
+.c-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 100px;
+    height: 100px;
+
+    transform: translate(-50%, -50%);
+    z-index: 50;
+
+    transition: var(--global-transition);
+}
+
+.c-loading::after {
+    content: " ";
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: loading-animation 1.2s linear infinite;
+}
+
+@keyframes loading-animation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
     }
 }
 
