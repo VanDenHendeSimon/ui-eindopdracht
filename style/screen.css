@@ -33,6 +33,10 @@
     --global-color-beta: #28334a;
     --global-color-beta-dark: #1e283f;
 
+    --global-color-beta-x-light: #ffad5b;
+    --global-color-beta: #ff952b;
+    --global-color-beta-x-dark: #eb7b0c;
+
     --global-color-neutral-xxxx-light: #f5f6fa;
     --global-color-neutral-xxx-light: #e2e3e7;
     --global-color-neutral-xx-light: #caccd4;
@@ -314,7 +318,7 @@ body {
 
 .o-row {
     position: relative;
-    padding: 24px 24px 0;
+    padding: 48px 24px 0 24px;
     display: flow-root;
 }
 
@@ -332,8 +336,7 @@ body {
 
 @media (min-width: 768px) {
     .o-row {
-        padding-left: 48px;
-        padding-right: 48px;
+        padding: 24px 48px 0 48px;
     }
 
     .o-row--md {
@@ -669,14 +672,25 @@ body {
     }
 }
 
+.c-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--global-whitespace-sm);
+}
+
 .c-cta {
+    --cta-text-color: var(--global-color-neutral-xxxx-dark);
+    --cta-text-color--hover: var(--global-color-neutral-xxxx-light);
+}
+
+.c-cta__link {
     padding: var(--global-whitespace-sm) var(--global-whitespace-md);
     margin: 0;
     text-align: center;
 
     text-decoration: none;
     font-size: 16px;
-    color: white;
+    color: var(--cta-text-color);
 
     /* background: linear-gradient(to bottom right, var(--global-color-alpha-dark), var(--global-color-alpha-x-dark)); */
     background-color: var(--global-color-beta-x-light);
@@ -686,19 +700,28 @@ body {
     transition: all 0.2s ease;
 }
 
-.c-cta:hover {
-    background-color: var(--global-color-alpha-dark);
-    color: white;
-    border-color: var(--global-color-alpha-x-dark);
-    /* background-color: red; */
+.c-cta__link--secondary {
+    background-color: inherit;
+    text-decoration: underline;
+    color: var(--cta-text-color);
+    border: none;
 }
 
-.c-cta:visited {
-    color: white;
+.c-cta__link:hover {
+    background-color: var(--global-color-beta);
+    border-color: var(--global-color-beta-x-dark);
 }
 
-.c-cta:hover:visited {
-    color: #fff;
+.c-cta__link--secondary:hover {
+    background-color: inherit;
+}
+
+.c-cta__link:visited {
+    color: var(--cta-text-color);
+}
+
+.c-cta__link:hover:visited {
+    color: var(--cta-text-color);
 }
 
 /* ///////////////////////////////////////////////////// */
@@ -1709,8 +1732,12 @@ more padding on the right to avoid overlap
     height: 100%;
 }
 
-.c-download-icon {
+.c-download-icon__container {
     height: 3rem;
+}
+
+.c-download-icon {
+    height: 100%;
     width: auto;
 }
 
