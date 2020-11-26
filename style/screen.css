@@ -919,7 +919,6 @@ more padding on the right to avoid overlap
     font-size: 1rem;
     line-height: 1.1rem;
     color: var(--label-color, --global-html-color);
-    /* transition: var(--global-transition); */
 
     display: flex;
     justify-content: space-between;
@@ -929,6 +928,11 @@ more padding on the right to avoid overlap
 
 .c-lead-capture .c-label {
     font-size: 0.9rem;
+}
+
+.c-sidebar__properties .c-label {
+    color: var(--global-html-color);
+    transition: var(--global-transition);
 }
 
 .c-label--option {
