@@ -676,9 +676,27 @@ body {
     gap: var(--global-whitespace-sm);
 }
 
+@media (min-width: 768px) {
+    .c-actions {
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 992px) {
+    .c-actions {
+        flex-direction: row;
+    }
+}
+
 .c-cta {
     --cta-text-color: var(--global-color-neutral-xxxx-dark);
     --cta-text-color--hover: var(--global-color-neutral-xxxx-light);
+}
+
+.c-cta__icon {
+    width: 0.75rem;
+    height: 0.75rem;
+    margin-left: var(--global-whitespace-sm);
 }
 
 .c-cta__link {
@@ -696,13 +714,30 @@ body {
     border: 1px solid var(--global-color-beta-xx-dark);
 
     transition: all 0.2s ease;
+
+    display: flex;
+    align-items: center;
 }
 
 .c-cta__link--secondary {
     background-color: inherit;
-    text-decoration: underline;
+    /* text-decoration: underline; */
     color: var(--cta-text-color);
     border: none;
+
+    position: relative;
+}
+
+.c-cta__link--secondary::after {
+    content: "";
+    position: absolute;
+
+    bottom: var(--global-whitespace-sm);
+    left: 10%;
+
+    width: 80%;
+    height: 1px;
+    background-color: var(--global-color-neutral-xxx-dark);
 }
 
 .c-cta__link:hover {
@@ -1474,7 +1509,7 @@ c-nav__link--footer {
 
     /* Enable below to enable box around hamburger menu when in focus / activated */
 
-    border: 2px solid var(--custom-option-borderColor, rgba(0,0,0,0));
+    border: 2px solid var(--custom-option-borderColor, rgba(0, 0, 0, 0));
     box-shadow: var(--custom-option-boxShadow, 0);
 }
 
@@ -1487,7 +1522,7 @@ c-nav__link--footer {
     transform-origin: center;
 }
 
-@media(min-width: 992px) {
+@media (min-width: 992px) {
     .c-hamburger-menu__input {
         display: none;
     }
@@ -1651,6 +1686,38 @@ c-nav__link--footer {
     --layerDuration: 0.3s;
     --layerTiming: ease-out;
     transition: fill-opacity var(--layerDuration) var(--layerTiming), stroke-opacity var(--layerDuration) var(--layerTiming);
+}
+
+.u-pt-lg {
+    padding-top: var(--global-whitespace-lg);
+}
+
+.u-pt-xl {
+    padding-top: var(--global-whitespace-xl);
+}
+
+.u-pt-xxl {
+    padding-top: calc(var(--global-whitespace-xl) * 2);
+}
+
+.u-pt-xxxl {
+    padding-top: calc(var(--global-whitespace-xl) * 3);
+}
+
+.u-pb-lg {
+    padding-bottom: var(--global-whitespace-lg);
+}
+
+.u-pb-xl {
+    padding-bottom: var(--global-whitespace-xl);
+}
+
+.u-pb-xxl {
+    padding-top: calc(var(--global-whitespace-xl) * 2);
+}
+
+.u-pb-xxxl {
+    padding-bottom: calc(var(--global-whitespace-xl) * 3);
 }
 
 .u-only-on-small-devices {
