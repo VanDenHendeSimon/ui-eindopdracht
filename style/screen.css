@@ -21,16 +21,16 @@
 :root {
     /* Global colors */
     --global-color-alpha-light: #ffe873;
-    --global-color-alpha: #ffda29;
+    --global-color-alpha: #ffdf3d;
     --global-color-alpha-dark: #f5d01a;
     --global-color-alpha-x-dark: #d4b206;
     --global-color-alpha-transparent: #ffda29bf;
     --global-color-alpha-x-transparent: #ffda294d;
     --global-color-alpha-xx-transparent: #ffe7706d;
 
-    --global-color-beta-x-light: #ffad5b;
-    --global-color-beta: #ff952b;
-    --global-color-beta-x-dark: #eb7b0c;
+    --global-color-beta-x-light: #fdaf62;
+    --global-color-beta: #ff9f3e;
+    --global-color-beta-x-dark: #f18314;
 
     --global-color-neutral-xxxx-light: #f5f6fa;
     --global-color-neutral-xxx-light: #e2e3e7;
@@ -50,7 +50,7 @@
     /* global page settings */
     --global-html-color: var(--global-color-neutral-xxxx-dark);
     --global-html-backgroundColor: var(--global-color-neutral-xxxx-light);
-    --global-selection-backgroundColor: var(--global-color-alpha);
+    --global-selection-backgroundColor: var(--global-color-beta);
 
     --global-html-color-contrast-sm: var(--global-color-neutral-light);
     --global-html-color-contrast-md: var(--global-color-neutral-xx-light);
@@ -1454,8 +1454,9 @@ c-nav__link--footer {
     justify-content: space-around;
 
     /* Enable below to enable box around hamburger menu when in focus / activated */
-    /* border: 2px solid var(--custom-option-borderColor, rgba(0,0,0,0));
-    box-shadow: var(--custom-option-boxShadow, 0); */
+
+    border: 2px solid var(--custom-option-borderColor, rgba(0,0,0,0));
+    box-shadow: var(--custom-option-boxShadow, 0);
 }
 
 .c-hamburger-menu__line {
@@ -1465,6 +1466,16 @@ c-nav__link--footer {
 
     transition: var(--global-transition);
     transform-origin: center;
+}
+
+@media(min-width: 992px) {
+    .c-hamburger-menu__input {
+        display: none;
+    }
+
+    .c-hamburger-menu {
+        display: none;
+    }
 }
 
 .c-sidebar__properties {
