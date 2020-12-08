@@ -735,9 +735,11 @@ body {
     bottom: var(--global-whitespace-sm);
     left: 10%;
 
-    width: 80%;
+    width: 50%;
     height: 1px;
     background-color: var(--global-color-neutral-xxx-dark);
+
+    transition: width var(--global-transitionTiming-alpha);
 }
 
 .c-cta__link:hover {
@@ -758,6 +760,10 @@ body {
     /* background-color: var(--global-color-beta); */
     background-color: inherit;
     color: var(--cta-text-color);
+}
+
+.c-cta__link--secondary:hover::after {
+    width: 80%;
 }
 
 .c-cta__link--secondary:visited {
