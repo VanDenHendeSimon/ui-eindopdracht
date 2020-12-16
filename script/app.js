@@ -330,8 +330,6 @@ const listenToFilters = function () {
 };
 
 const init = function () {
-    console.log("DOM Content Loaded");
-
     // Define map stuff
     createMap();
 
