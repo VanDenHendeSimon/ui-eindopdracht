@@ -85,7 +85,7 @@ const enableListeners = function () {
             console.log("Email: " + email.input.value);
 
             signInButton.classList.add("c-lead-capture__submit--success");
-            signInButton.innerHTML = "Bedankt!";
+            signInButton.innerHTML = "Thanks!";
         }   else {
             addBadEmailButtonStyling();
         }
